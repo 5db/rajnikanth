@@ -1,0 +1,19 @@
+<div ng-controller="SearchCtrl">
+  <form class="navbar-search" ng-submit="search(query)">
+    <input type="text" class="input-xxlarge search-query" placeholder="Search" ng-model="query">
+  </form>
+  <br>
+  <div class="row-fluid marketing" when-scrolled="loadMore()">
+    <ul class="media-list">
+      <li class="media" ng-repeat="video in videos">
+        <a class="pull-left thumbnail" href="http://www.youtube.com/watch?v={{ video.id.videoId }}" target="_blank">
+          <img class="media-object" ng-src="{{video.snippet.thumbnails.default.url}}" alt="64x64" style="width: 64px; height: 64px;">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">{{ video.snippet.title }}</h4>
+          <p>{{ video.snippet.description }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
